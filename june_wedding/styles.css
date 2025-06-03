@@ -1,0 +1,704 @@
+body,
+.main-page {
+    background: #fff !important;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    /* -- fix: don't allow overflow when hidden */
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    max-width: 1480px;
+}
+
+/* Верхний блок */
+.top-row {
+    min-height: 490px;
+}
+
+.top-photo {
+    width: auto;
+    height: 470px;
+    max-width: 100%;
+    max-height: 470px;
+    object-fit: contain;
+    background: #eee;
+    border-radius: 20px;
+    border: 3px solid #ececec;
+    box-shadow: 0 3px 18px 0 rgba(0, 0, 0, 0.07);
+    display: block;
+    margin-right: 18px;
+    transition: box-shadow 0.2s;
+}
+
+.photo-gallery-scroll .top-photo:last-child {
+    margin-right: 0;
+}
+
+/* Контейнер галереи - на десктопе ширина 60% и по центру */
+.photo-gallery-desktop-wrap {
+    width: 60vw;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1199px) {
+    .photo-gallery-desktop-wrap {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 991px) {
+    .photo-gallery-desktop-wrap {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Галерея с прокруткой */
+.photo-gallery-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    gap: 0;
+    width: 100%;
+    max-width: 100vw;
+    padding-bottom: 8px;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+    box-sizing: border-box;
+    /* fix mobile: remove left padding/margin at all! */
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.photo-gallery-scroll.active {
+    cursor: grabbing;
+}
+
+.photo-gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.photo-gallery-scroll {
+    -ms-overflow-style: none;
+    /* IE и Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+@media (max-width: 991px) {
+    .photo-gallery-scroll {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0 !important;
+        padding: 0 !important;
+        /* Обрезаем изображения, чтобы не было горизонтального скролла */
+        overflow-x: auto;
+    }
+
+    .top-photo {
+        margin-right: 14px;
+    }
+
+    .photo-gallery-scroll .top-photo:last-child {
+        margin-right: 0;
+    }
+}
+
+/* Центр между фото */
+.top-center-col {
+    border-left: 3px solid #ddd;
+    border-right: 3px solid #ddd;
+    min-height: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.top-date {
+    font-size: 1.5rem;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 0.5em;
+    font-family: 'Playfair Display', serif;
+}
+
+.top-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.13;
+}
+
+.handwritten {
+    font-family: 'Great Vibes', cursive;
+    color: #c23e59;
+    font-size: 4.2rem;
+    display: block;
+    margin-bottom: -0.2em;
+    margin-top: -0.3em;
+}
+
+.top-script {
+    font-family: 'Great Vibes', cursive;
+    color: #c23e59;
+    font-size: 3.1rem;
+    font-weight: 400;
+}
+
+.top-family {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    color: #999;
+    margin-top: 0.4em;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.custom-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 3.8rem !important;
+}
+
+.cursive {
+    font-family: 'Great Vibes', cursive;
+    color: #c23e59 !important;
+    font-size: 3.1rem;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.custom-desc {
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+    font-size: 1.65rem;
+    color: #282828;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.5;
+}
+
+.custom-heart {
+    color: #e85067;
+    font-size: 1.7em;
+    vertical-align: middle;
+}
+
+.row.justify-content-center.mb-4 {
+    margin-bottom: 0 !important;
+    /* Вместо mb-4 от Bootstrap */
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .top-photo {
+        height: 330px;
+        max-height: 330px;
+    }
+
+    .top-main {
+        font-size: 2.8rem;
+    }
+
+    .handwritten {
+        font-size: 4.0rem;
+    }
+
+    .top-script {
+        font-size: 3.5rem;
+    }
+
+    .custom-title {
+        font-size: 3.5rem !important;
+    }
+
+    .custom-desc {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .top-photo {
+        height: 240px;
+        max-height: 240px;
+    }
+
+    .top-main {
+        font-size: 2.1rem;
+    }
+
+    .handwritten {
+        font-size: 3.7rem;
+    }
+
+    .top-script {
+        font-size: 3.2rem;
+    }
+
+    .custom-title {
+        font-size: 2.8rem !important;
+    }
+
+    .custom-desc {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-center-col {
+        border: none;
+        border-top: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+        margin: 14px 0;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        min-height: 1em;
+    }
+
+    .top-photo {
+        height: 32vw;
+        max-height: 32vw;
+    }
+
+    .top-main {
+        font-size: 1.6rem;
+    }
+
+    .handwritten {
+        font-size: 3.5rem;
+    }
+
+    .deftext {
+        font-size: 3.0rem;
+    }
+
+    .top-script {
+        font-size: 3.0rem;
+    }
+
+    .custom-title {
+        font-size: 2.1rem !important;
+    }
+
+    .custom-desc {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .main-page,
+    body {
+        padding: 0 !important;
+    }
+
+    .container-fluid {
+        padding: 0 2px;
+    }
+
+    .top-photo {
+        height: 55vw;
+        max-height: 55vw;
+    }
+
+    .top-main {
+        font-size: 1.15rem;
+    }
+
+    .handwritten {
+        font-size: 3.0rem;
+    }
+
+    .deftext {
+        font-size: 3.0rem;
+    }
+
+    .top-script {
+        font-size: 2.5rem;
+    }
+
+    .custom-title {
+        font-size: 1.93rem !important;
+    }
+
+    .custom-desc {
+        font-size: 0.80rem;
+    }
+}
+
+/* ---- Лайтбокс/Fullscreen ---- */
+.lightbox-overlay {
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(28, 28, 32, 0.93);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s;
+    opacity: 0;
+    padding: 0;
+    overflow: auto;
+    /* fix: prevent scroll for overlay itself */
+    overscroll-behavior: contain;
+    box-sizing: border-box;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    display: block;
+    max-width: 98vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: #f8f8f8;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .13);
+    border-radius: 14px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 38px;
+    font-size: 3.2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, .17);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    line-height: 44px;
+    text-align: center;
+    z-index: 10001;
+    transition: background 0.16s, color 0.16s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .10);
+    opacity: 0.7;
+}
+
+.lightbox-close:hover {
+    color: #fff;
+    background: rgba(255, 80, 100, .68);
+    opacity: 1;
+}
+
+/* Мобилам поудобней */
+@media (max-width: 767px) {
+    .lightbox-content {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .lightbox-img {
+        max-width: 100vw;
+        max-height: 90vh;
+        border-radius: 8px;
+    }
+
+    .lightbox-close {
+        top: 14px;
+        right: 10px;
+        font-size: 2.6rem;
+        width: 38px;
+        height: 38px;
+        line-height: 32px;
+    }
+}
+
+/* Система фокусов */
+.lightbox-overlay:focus {
+    outline: none;
+}
+
+
+
+/* На мобиле предотвращаем прокрутку контейнеров за пределы экрана */
+@media (max-width: 991px) {
+
+    html,
+    body,
+    .main-page,
+    .container-fluid,
+    .photo-gallery-desktop-wrap,
+    .photo-gallery-scroll {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+    }
+}
+
+/* Фиксы для корректного отображения на iOS/Safari */
+@supports (padding: max(0px)) {
+    @media (max-width: 767px) {
+
+        body,
+        .main-page {
+            padding-left: max(0px, env(safe-area-inset-left));
+            padding-right: max(0px, env(safe-area-inset-right));
+        }
+    }
+}
+
+/* Стили для блока с подарком */
+.gift-container {
+    background: #f9f6f7;
+    border-radius: 24px;
+    border: 2px solid #ece7ea;
+    box-shadow: 0 4px 16px 0 rgba(200, 62, 89, 0.07);
+    max-width: 490px;
+    margin: 0 auto 16px auto;
+    padding: 44px 34px 36px 34px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.gift-container h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #c23e59;
+    font-size: 2.4rem;
+    margin-bottom: 0.4em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.gift-container p {
+    color: #2b2b2b;
+    font-size: 1.16rem;
+    margin-bottom: 2.1em;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+}
+
+.gift-btn {
+    display: inline-block;
+    padding: 0.8em 2.5em;
+    font-size: 1.18rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #c23e59 60%, #e85067 100%);
+    border: none;
+    border-radius: 38px;
+    box-shadow: 0 3px 14px 0 rgba(200, 62, 89, 0.13);
+    transition: background 0.18s, transform 0.13s, box-shadow 0.18s;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.07em;
+}
+
+.gift-btn:hover,
+.gift-btn:focus {
+    background: linear-gradient(90deg, #e85067 30%, #c23e59 100%);
+    transform: translateY(-2px) scale(1.035);
+    box-shadow: 0 6px 20px 0 rgba(200, 62, 89, 0.17);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Скрываем переносы строк на мобильных */
+.desktop-only {
+    display: inline;
+}
+
+@media (max-width: 767px) {
+    .gift-container {
+        padding: 24px 12px 26px 12px;
+        border-radius: 16px;
+        margin: 0 8px 12px 8px;
+        width: calc(100% - 16px);
+        box-sizing: border-box;
+    }
+
+    .gift-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5em;
+    }
+
+    .gift-container p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 1.5em;
+    }
+
+    .gift-btn {
+        font-size: 0.9rem;
+        padding: 0.65em 1.8em;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .photo-gallery-desktop-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .photo-gallery-scroll {
+        max-width: 100%;
+        padding-left: 8px !important;
+    }
+
+    /* Фиксы для контейнеров, чтобы избежать горизонтального скролла */
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .col-12 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Глобальные исправления для предотвращения горизонтального скролла */
+html,
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* Форсированное ограничение ширины всех элементов */
+* {
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Особое внимание галерее с фотографиями */
+@media (max-width: 767px) {
+    .photo-gallery-scroll {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 8px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .photo-gallery-desktop-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+    }
+
+    .top-photo {
+        max-width: 80vw;
+        height: auto;
+    }
+
+    /* Скорректировать контейнер */
+    .container-fluid {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Важно убрать все отрицательные маржины у рядов Bootstrap */
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Особое внимание для текстового контейнера с подарком */
+@media (max-width: 767px) {
+    .gift-container {
+        width: calc(100% - 16px) !important;
+        margin-left: 8px !important;
+        margin-right: 8px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Уменьшение текста в gift-container еще больше */
+    .gift-container p {
+        font-size: 0.75rem !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Ещё один слой защиты для предотвращения горизонтального скролла */
+@media (max-width: 767px) {
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        background: transparent;
+        z-index: -1;
+    }
+
+    .main-page {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
